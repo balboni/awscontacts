@@ -11,6 +11,12 @@ RSpec.feature "Users can create new contacts" do
 		click_button "Create Contact"
 
 		expect(page).to have_content "Contact has been created."
+
+		contact = Contact.find_by(fname: "Brian")
+		expect(page.current_url).to eq contact_url(contact)
+
+		title = "Brian - Contacts - Ticketee"
+		expect(page).to have_title title
 	end
 
 end
