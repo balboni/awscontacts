@@ -14,8 +14,10 @@ def create
 		flash[:notice] = "Contact has been created."
 		redirect_to @contact
 	else
-		# nothing, yet
+		flash.now[:alert] = "Contact has not been created."
+		render "new"
 	end
+  end
 
 def show
 	@contact = Contact.find(params[:id])
@@ -33,6 +35,5 @@ def contact_params
 		:first_met)
 end
 
-end
 
 
