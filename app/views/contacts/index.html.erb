@@ -4,8 +4,13 @@
 
 <div id="contacts">
 	<% @contacts.each do |contact| %>
+	<h2><%= contact.fname %></h2>
 	<h2><%= link_to contact.lname, contact %></h2>
+	<p><%= contact.cell_phone %></p>
+	<p><%= contact.email %></p>
+	<p><%= contact.company %></p>
 	<p><%= contact.description %></p>
+	<p><%= contact.first_met %></p>
 	<% end %>
 </div>
 
