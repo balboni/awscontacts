@@ -36,6 +36,13 @@ def update
 	redirect_to @contact
 end
 
+def destroy
+	@contact = Contact.find(params[:id])
+	@contact.destroy
+
+	flash[:notice] = "Contact has been deleted."
+	redirect_to contacts_path
+end
 
 end
 
