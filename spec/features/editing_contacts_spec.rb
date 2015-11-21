@@ -1,17 +1,27 @@
 require "rails_helper"
 
 RSpec.feature "Users can edit existing contacts" do  
-	scenario "with valid attributes" do  
-		FactoryFirl.create(:contact, fname: "Trisha", lname: "Obert")
+	before do 
+		FactoryGirl.create(:contact, fname: "Tina", lname: "Obert")
 
 		visit "/"
 		click_link "Obert"
 		click_link "Edit Contact"
-		fill_in "fname", with: "Tina"
-		click_button "Update Project"
+	end
+
+	scenario "with valid attributes" do 
+		fill_in "First Name", with: "Trisha"
+		click_button "Update Contact"
 
 		expect(page).to have_content "Contact has been updated."
-		expect(page).to have_content "Obert"
+		expect(page).to have_content "Trisha"
+	end
+
+	scenario "when providing invalid attributes" do  
+		fill_in "First Name", with: ""
+		click_button "Update Contact"
+
+		expect(page).to have_content "Contact has not been updated."
 	end
 end
 

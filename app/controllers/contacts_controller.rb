@@ -24,6 +24,18 @@ def show
 	@contact = Contact.find(params[:id])
 end
 
+def edit
+	@contact = Contact.find(params[:id]) 
+end
+
+def update
+	@contact = Contact.find(params[:id])
+	@contact.update(contact_params)
+
+	flash[:notice] = "Contact has been updated."
+	redirect_to @contact
+end
+
 
 end
 

@@ -1,4 +1,5 @@
 <% title(@contact.fname, "Contacts") %>
+<%= link_to "Edit Contact", edit_contact_path(@contact) %>
 
 <h1><%= @contact.fname %></h1>
 <h1><%= @contact.lname %></h1>
