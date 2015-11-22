@@ -1,13 +1,21 @@
-<% title(@contact.fname, "Contacts") %>
-<%= link_to "Edit Contact", edit_contact_path(@contact) %>
-<%= link_to "Delete Contact",
-  contact_path(@contact),
-  method: :delete,
-  data: { confirm: "Are you sure you want to delete this contact?"}
-  %>
+<div class="page-header">
+	<h1><%= @contact.fname %><%= @contact.lname %></h1>
 
-<h1><%= @contact.fname %></h1>
-<h1><%= @contact.lname %></h1>
-<p><%= @contact.cell_phone %></p>
-<p><%= @contact.email %></p>
+	<ul class="actions">
+		<li><%= link_to fa_icon("pencil") + " Edit Contact",
+		  edit_contact_path(@contact), class: "btn btn-primary" %></li>
+		<li><%= link_to fa_icon("trash") + " Delete Contact",
+		  contact_path(@contact),
+		  method: :delete,
+		  data: { confirm: "Are you sure you want to delete this contact?" },
+		  class: "btn btn-danger" %></li>
+	</ul>
+</div>
+
+<h2><%= @contact.fname %></h2>
+<h2><%= @contact.lname %></h2>
+<h3><%= @contact.cell_phone %></h3>
+<h3><%= @contact.email %></h3>
+
+
 
