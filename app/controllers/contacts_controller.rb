@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+	before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
 def index
 	@contacts = Contact.all
@@ -48,6 +49,14 @@ end
 
 
 private
+
+def set_contact
+  @contact = Contact.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+
+  flash[:alert] = "The contact you were looking for could not be found."
+  redirect_to contacts_path
+end
 
 def contact_params
 	params.require(:contact).permit(:fname, :lname, 
