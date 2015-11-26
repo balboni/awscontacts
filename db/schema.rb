@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101225025) do
+ActiveRecord::Schema.define(version: 20151126200850) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "fname",       limit: 255
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20151101225025) do
     t.datetime "first_met"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "spouse",      limit: 255
+    t.string   "children",    limit: 255
   end
 
 end

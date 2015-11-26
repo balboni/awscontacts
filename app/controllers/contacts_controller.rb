@@ -61,7 +61,7 @@ end
 def contact_params
 	params.require(:contact).permit(:fname, :lname, 
 		:description, :cell_phone, :email, :company,
-		:first_met)
+		:first_met, :spouse, :children)
 end
 
 
