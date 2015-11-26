@@ -6,9 +6,8 @@
 </header>
 
 <div id="contacts">
-	<% @contacts.each do |contact| %>
-	<h2><%= contact.fname %></h2>
-	<h2><%= link_to contact.lname, contact %></h2>
+	<% @contacts.each do |contact| %>	
+	<h2><%= link_to contact.full_name, contact %></h2>
 	<p><%= contact.cell_phone %></p>
 	<p><%= contact.email %></p>
 	<p><%= contact.spouse %></p>
